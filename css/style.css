@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header,
+footer {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+footer {
+  text-align: center;
+  background: #111;
+
+  p {
+    margin-top: 1rem;
+  }
+}
+
+main {
+  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
+}
+
+form {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-top: 2rem;
+}
