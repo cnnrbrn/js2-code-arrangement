@@ -18,7 +18,7 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <script src="/js/app.js" defer></script>
+    <script src="/js/app.js" type="module"></script>
   </head>
   <body>
     <header>
@@ -53,8 +53,9 @@
     </header>
     <main>
       <section class="container">
-        <form>
+        <form id="registerForm">
           <h1>Register</h1>
+          <div id="message"></div>
           <fieldset>
             <legend>Fill in your details to register</legend>
             <div class="mb-3">
@@ -63,7 +64,10 @@
                 type="text"
                 class="form-control"
                 id="name"
+                name="name"
                 aria-describedby="nameHelp"
+                required
+                value="my name"
               />
             </div>
             <div class="mb-3">
@@ -72,16 +76,34 @@
                 type="email"
                 class="form-control"
                 id="email"
+                name="email"
                 aria-describedby="emailHelp"
+                pattern="^[^@]+@(stud\.|)(noroff\.no)$"
+                title="Please provide a noroff.no or stud.noroff.no email address"
+                required
+                value="email@stud.noroff.no"
               />
             </div>
             <div class="mb-3">
               <label for="password" class="form-label">Password</label>
-              <input type="password" class="form-control" id="password" />
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="password"
+                required
+                minlength="8"
+                value="11111111111"
+              />
             </div>
             <div class="mb-3">
               <label for="bio" class="form-label">Bio</label>
-              <textarea class="form-control" id="bio" rows="3"></textarea>
+              <textarea
+                class="form-control"
+                id="bio"
+                name="bio"
+                rows="3"
+              ></textarea>
             </div>
             <div class="mb-3">
               <label for="avatarUrl" class="form-label">Avatar URL</label>
@@ -89,18 +111,11 @@
                 type="url"
                 class="form-control"
                 id="avatarUrl"
+                name="avatarUrl"
                 aria-describedby="avatarUrlHelp"
               />
             </div>
-            <div class="mb-3">
-              <label for="avatarAlt" class="form-label">Avatar Alt</label>
-              <input
-                type="text"
-                class="form-control"
-                id="avatarAlt"
-                aria-describedby="avatarAltHelp"
-              />
-            </div>
+
             <button type="submit" class="btn btn-primary">Submit</button>
           </fieldset>
         </form>
