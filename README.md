@@ -1,3 +1,3 @@
-# Register form submit handler
+# Register API call
 
-[Video](https://www.loom.com/share/3b4bf417971f47999dbe26ed779bd376?sid=2a47a6a7-b524-4271-99b5-6358bfcce8ee)
+[Video](https://www.loom.com/share/227a8043c97a425483d5639499bbeefb?sid=08a66515-d58e-423a-9d71-5b27d4c90e30)
