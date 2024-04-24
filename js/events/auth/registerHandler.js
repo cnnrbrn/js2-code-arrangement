@@ -1,4 +1,5 @@
 import { register } from "../../api/auth/register.js";
+import { displayMessage } from "../../ui/common/displayMessage.js";
 
 export function registerHandler() {
   console.log("registerHandler");
@@ -8,7 +9,7 @@ export function registerHandler() {
   }
 }
 
-function submitForm(event) {
+async function submitForm(event) {
   event.preventDefault();
   // The first line of the code const form = event.target; is getting the HTML element that triggered the event. In this case, it's likely a form element since we're using it to create a FormData object in the next line.
 
@@ -33,6 +34,28 @@ function submitForm(event) {
     delete data.avatarUrl;
   }
 
+  const container = document.querySelector("#message");
+
   console.log(data);
-  register(data);
+
+  const fieldset = form.querySelector("fieldset");
+  const button = form.querySelector("button");
+
+  try {
+    fieldset.disabled = true;
+    await register(data);
+    // the call was a success
+    // display a success message
+    displayMessage(
+      "#message",
+      "success",
+      "Successfully registered. Please login."
+    );
+    form.reset();
+  } catch (error) {
+    console.error(error);
+    displayMessage(container, "warning", error.message);
+  } finally {
+    fieldset.disabled = false;
+  }
 }
